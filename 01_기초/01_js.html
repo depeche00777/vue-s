@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카운터-js</title>
+</head>
+<body>
+  <button onClick="increase()">
+    <span id="number">0</span>
+  </button>
+  <script>
+    let counter = 0;    // 변수설정
+    
+    
+    function increase(){
+      counter++;  
+      // 변수가 1씩 추가됨 counter = counter+1;
+      
+      document.querySelector('#number').textContent = counter;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카운터 - vue.js</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <h1>Vue를 이용한 카운터</h1>
+  <div id="number">
+    <button v-on:click="counter++"> Count is : {{ counter }}</button>
+  </div>
+  <script>
+    const app =  Vue.createApp({
+      data(){
+        return { counter: 0 }
+      }
+    })
+
+    app.mount('#number');
+  </script>
+
+</body>
+</html>
