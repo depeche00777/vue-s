@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컴포넌트</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    * { margin:0; padding: 0; box-sizing: border-box; }
+    header { height:80px; background: lightskyblue; padding: 16px;}
+    nav ul { background: lightgray; 
+      display: flex; justify-content: center; column-gap: 20px;}
+    nav li { list-style: none; line-height: 40px; }
+    footer { background: lightgray; line-height: 50px; text-align: center; 
+    }
+    main { 
+      height: calc(100vh - 170px);
+      /* calc() css 연산을 해주는 함수 , 스페이스(여백 주의) */
+      overflow-y: auto;
+    }
+    main section {}
+
+    .book { 
+      border: 2px solid red; border-radius: 8px;
+      display: inline-block;
+      padding:60px; margin: 16px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <App-Header></App-Header>
+    <App-Nav></App-Nav>
+    <Main-View></Main-View>
+    <App-Footer></App-Footer>
+  </div>
+  
+
+  <script>
+    //컴포넌트로 만들 부분  -  문자열 템플릿 방식
+    const BookComponent = { 
+      template:`
+        <article class="book">
+          <p>book sub title</p>
+          <h1>제목입니다</h1>
+        </article>`
+    }
+    const AppHeader = {
+      template:`
+        <header>
+          <h1>HEADER</h1>
+        </header>`    
+    }
+    const AppNav = {
+      template:`
+      <nav>
+        <ul>
+          <li>Menu1</li>
+          <li>Menu2</li>
+          <li>Menu3</li>
+          <li>Menu4</li>
+          <li>Menu5</li>
+        </ul>
+      </nav>`
+    }
+    const AppFooter = {
+      template:`
+        <footer>
+          <address>Vue Component 연습 페이지입니다</address>
+        </footer>`
+    }
+    const MainView = {
+      template:`
+      <main>
+        <section>
+          <book-Comp></book-Comp>
+          <book-Comp></book-Comp>
+          <book-Comp></book-Comp>
+          <book-Comp></book-Comp>
+          <book-Comp></book-Comp>
+        </section>
+      </main>
+      `
+    }
+    
+
+    const app = Vue.createApp({}); //Vue 인스턴스 생성
+    app.component('BookComp', BookComponent) //컴포넌트 등록(선언)
+    app.component('AppHeader', AppHeader)
+    app.component('AppNav', AppNav)
+    app.component('AppFooter', AppFooter)
+    app.component('MainView', MainView)
+
+    app.mount('#app')
+  </script>
+</body>
+</html>
+<!-- 
+  BookComp - 파스칼 표기법
+  bookComp - 카멜 표기법
+  book-comp - 케밥 표기법(대소문자 상관X)
+-->

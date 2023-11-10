@@ -1,0 +1,19 @@
+npm init -y   :package.json생성
+npm i vue    :node-module폴더 생성/ Vue설치
+npm i vite   :vite애플리케이션 설치
+npm i @vitejs/plugin-vue
+
+ vite.config.js -root에 파일 만들고 복사해서 붙여넣기
+import vue from '@vitejs/plugin-vue'
+
+export default {
+  plugins: [vue()],
+}
+
+package.json 에 내용 추가
+
+"scripts": {
+    "dev": "vite"
+}
+
+npm run dev  :앱 실행
