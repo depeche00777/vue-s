@@ -1,0 +1,19 @@
+* { margin:0; padding: 0; box-sizing: border-box; }
+    header { height:80px; background: lightskyblue; padding: 16px;}
+    nav ul { background: lightgray; 
+      display: flex; justify-content: center; column-gap: 20px;}
+    nav li { list-style: none; line-height: 40px; }
+    footer { background: lightgray; line-height: 50px; text-align: center; 
+    }
+    main { 
+      height: calc(100vh - 170px);
+      /* calc() css 연산을 해주는 함수 , 스페이스(여백 주의) */
+      overflow-y: auto;
+    }
+
+    .book { 
+      border: 2px solid red; border-radius: 8px;
+      display: inline-block;
+      padding:60px; margin: 16px;
+      text-align: center;
+    }

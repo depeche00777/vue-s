@@ -1,0 +1,16 @@
+<template>
+  <main>
+    <section>
+      <book-Comp></book-Comp>
+      <book-Comp></book-Comp>
+      <book-Comp></book-Comp>
+      <book-Comp></book-Comp>
+      <book-Comp></book-Comp>
+      <book-Comp></book-Comp>
+      <book-Comp></book-Comp>
+      <book-Comp></book-Comp>
+      <book-Comp></book-Comp>
+      <book-Comp></book-Comp>
+    </section>
+  </main>
+</template>
