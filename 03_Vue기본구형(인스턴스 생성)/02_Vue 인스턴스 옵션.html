@@ -1,0 +1,23 @@
+<div id="app">
+  {{ count }}
+  <button v-on:click="addCount">+</button>
+  <!-- v-on 디렉티브를 사용, 누를때마다 addCount 함수실행 -->
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+
+  Vue.createApp({
+    data:function(){  //data속성(초기화)에 함수연결
+      return{
+        count: 0   //reactivity(업데이트가능)가 주입됨
+      }
+    },
+    methods: {
+      addCount(){
+        this.count++;
+        //this -  Vue.createApp에 있는 값에 접근하겠다!
+      }
+    }
+  }).mount('#app')
+</script>

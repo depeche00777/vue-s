@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<div id="main">
+  {{ message }}
+</div>
+
+<script>
+  //const { createApp } = Vue;  //js  구조분해 할당(destructuring) 해서 createApp매서드를 가져옴
+
+//뷰애플리케이션 인스턴스를 생성
+  Vue.createApp({
+    data(){
+      return{
+        message: 'Vue 인스턴스입니다!!'
+      }
+    }
+  }).mount('#main'); //Vue인스턴스를 #app에 붙임(사용할꺼야!) 
+  
+</script>
