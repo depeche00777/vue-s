@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-cloak</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<style>
+  p { font-size: 30px;}
+  p[v-cloak] { display: none; }
+</style>
+<body>
+  <div id="app">
+    <p>v-cloak : 준비될때까지 컴파일 되지 않은 요소를 숨기는데 사용 /  코드에서 v-cloak으 로딩될때 사라짐(css와 함께 사용)</p>
+    <p v-cloak>{{ message }}</p>
+      <img v-bind:src="imgURL" alt="">
+  </div>
+
+  <script>
+    const { createApp } = Vue
+    
+    setTimeout(()=>{  
+      createApp({
+        data(){
+          return {
+            message :'안녕',
+            imgURL:'https://src.hidoc.co.kr/image/lib/2022/7/20/1658306424525_0.jpg'
+          }
+        } 
+      }).mount('#app')   
+    }, 3000)
+
+  
+  </script>
+</body>
+</html>
