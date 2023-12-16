@@ -9,5 +9,7 @@
 
 https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=45fcb150351f5049358ecdb91b91b4e0
 
+
+ https://api.themoviedb.org/3/search/movie?query=${search_query.value}&include_adult=false&language=en-US&page=1&api_key=45fcb150351f5049358ecdb91b91b4e0
+
  
-    https://api.themoviedb.org/3/search/movie?query=${search_query.value}&api_key=45fcb150351f5049358ecdb91b91b4e0&include_adult=false&language=ko-KR&page=1
