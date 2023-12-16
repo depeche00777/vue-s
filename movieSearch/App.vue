@@ -15,8 +15,9 @@
     </header>
 
     <main>
-      <div class="cards">
-        <Card />
+      <div class="cards" >
+        <Card  v-for="movie in movieList" :aa="movie" />
+        <!-- aa 라는 이름으로 movie가 전달됨 -->
       </div>
     </main>
 
@@ -28,14 +29,34 @@ import { ref } from 'vue';
 import Card from './components/Card.vue';
 
 const search_query = ref('')
+const movieList = ref([])
 
-const handleSearch = () => {
-  console.log('입력값', search_query.value)
+const handleSearch = async () => {  
+
+  movieList.value = await fetch(`https://api.themoviedb.org/3/search/movie?query=${search_query.value}&include_adult=false&language=en-US&page=1&api_key=45fcb150351f5049358ecdb91b91b4e0`)
+    .then(response => response.json())
+    .then(data => data.results)      
+
   search_query.value=""
 }
+
+
+
+
+/*  popular데이타 받아오기
+const popular = async ()=>{
+  movieList.value = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=45fcb150351f5049358ecdb91b91b4e0')
+    .then(response => response.json())
+    .then(data => data.results)
+    console.log('받아온 데이타',movieList.value)    
+}
+popular ();
+*/
+
+
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 	$color:#313131;
 	%box-shadow {
   box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
@@ -111,4 +132,15 @@ const handleSearch = () => {
           // }
 			}
 	}
+
+  main {
+    max-width: 1200px;
+    margin:auto;
+    padding:0 16px;
+
+    .cards {  
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 </style>
